@@ -1,0 +1,14 @@
+int analogValue;
+int photoresistor = A5;
+
+void setup() {
+pinMode(photoresistor, INPUT);
+}
+
+void loop() {
+analogValue=analogRead(photoresistor);
+
+String lit = String(analogValue);
+Particle.publish("Lightlevel", lit, PRIVATE);
+delay(30000);
+}
